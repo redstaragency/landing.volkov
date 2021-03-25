@@ -18,6 +18,8 @@
         .page-section h1,.page-section h2,.page-section h3,.page-section p{margin:0}
         header ul,header li{padding:0;margin:0;list-style:none}
         .img{display:block;width:100%;height:100%;box-sizing:border-box;background-color:#cccc;min-height:200px;margin-bottom:10px}
+        {# .header__logo-wrapper {width: 200px; height: 50px} #}
+        .logo {width:115px;height:70px;min-height:unset; object-fit:contain;background:none;margin:0;}
         a{text-decoration:none;color:inherit}
         .i-arrow{display:block;width:24px;background-image:url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.25031 4.6875L7.62531 8.0625L11.0003 4.6875L12.1253 5.8125L7.62531 10.3125L3.12531 5.8125L4.25031 4.6875Z' fill='%23222222'/%3E%3C/svg%3E%0A");background-repeat:no-repeat;background-position:center;background-size:14px;transform-origin:center center;transition:.2s ease-in-out}
         .i-cross{display:block;background:url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.7'%3E%3Cpath d='M2 2L23.2132 23.2132' stroke='%23171717' stroke-width='2' stroke-linecap='square'/%3E%3Cpath d='M23.2132 2L1.99999 23.2132' stroke='%23171717' stroke-width='2' stroke-linecap='square'/%3E%3C/g%3E%3C/svg%3E%0A") center/contain no-repeat;background-repeat:no-repeat;background-position:center}
@@ -72,7 +74,7 @@
         p.socials-descr{margin-bottom:10px}
         .flex-container.socials{margin:0}
         .social{width:40px;height:24px;background-position:0 center;background-repeat:no-repeat}
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 1150px) {
         .contact + .contact{margin-top:40px}
         .contacts__item-label{font-size:18px;line-height:30px;text-transform:uppercase;color:rgba(6,23,33,.6);margin-bottom:10px}
         .contacts__item-descr{font-size:16px;line-height:18px;margin-bottom:10px;font-size:16px;line-height:18px}
@@ -99,10 +101,10 @@
         .header__nav{height:24px}
         .header__menu,.header__nav{display:flex}
         .header__nav{align-items:center;justify-content:space-between;width:100%}
-        .header__logo-wrapper{display:block;height:53px;width:186px;margin-right:63px}
+        .header__logo-wrapper{display:block;height:70px;width:200px;margin-right:63px}
         .header__inner,.page-wrapper{padding-left:30px;padding-right:30px}
         .page-wrapper{padding-top:73px}
-        .header{height:73px}
+        {# .header{height:90px} #}
         .page-section{margin-bottom:75px}
         .page-section-mt-half{margin-bottom:45px}
         .page-section h2{font-size:30px;margin-bottom:20px}
@@ -113,7 +115,7 @@
         .gallery-top{width:100%;height:570px}
         .gallery-thumbs{height:100px;box-sizing:border-box;padding:10px 0}
         }
-        @media screen and (max-width: 1023px) {
+        @media screen and (max-width: 1149px) {
         .contact + .contact{margin-top:20px}
         .contacts__item-label{font-size:16px;line-height:26px;text-transform:uppercase;color:rgba(6,23,33,.6);margin-bottom:10px}
         .contacts__item-descr{font-size:16px;line-height:18px;margin-bottom:10px;font-size:16px;line-height:18px}
@@ -134,17 +136,18 @@
         .header__button--cross{position:absolute;opacity:0;top:0;left:0;z-index:1;transition:opacity ease-in-out .2s}
         .header.active .header__button--burger{opacity:0;z-index:1}
         .header.active .header__button--cross{opacity:1;z-index:2}
-        .i-burger{display:block;width:32px;height:32px;background-image:url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.857162 14.8572H19.1429M0.857162 1.14294H19.1429H0.857162ZM0.857162 8.00009H19.1429H0.857162Z' stroke='black' stroke-width='1.71429' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");background-repeat:no-repeat;background-position:100% center;background-size:22px 16px}
+        .i-burger{padding: 10px;border: 1px solid rgba(6,23,33,.2);box-sizing: border-box;display:block;width:40px;height:40px;background-image:url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.857162 14.8572H19.1429M0.857162 1.14294H19.1429H0.857162ZM0.857162 8.00009H19.1429H0.857162Z' stroke='black' stroke-width='1.71429' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");background-repeat:no-repeat;background-position:center;background-size:22px 16px}
         .i-cross{width:32px;height:32px;background-size:18px}
         .modal-close{width:40px;height:40px;background-size:20px}
         .i-arrow{height:20px}
-        .header__logo-wrapper{width:114px;height:32px}
+        {# .header__logo-wrapper{width:114px;height:32px} #}
+        .logo{width:100px;height:58px;}
         .header__inner{position:relative;padding-top:15px;padding-bottom:15px}
-        .header__menu{position:absolute;top:100%;left:100%;width:200px;height:calc(100vh - 65px);transition:.2s ease-in-out;box-sizing:border-box;padding:20px 15px;overflow-y:auto;background:#fff;margin-top:4px}
+        .header__menu{position:absolute;top:100%;left:100%;width:200px;height:calc(100vh - 65px);transition:.2s ease-in-out;box-sizing:border-box;padding:20px 15px;overflow-y:auto;background:#fff;margin-top:1px}
         .header.active .header__menu{transform:translateX(-100%)}
         .page-wrapper,.header__inner{padding-left:15px;padding-right:15px}
         .page-wrapper{padding-top:65px}
-        .header{height:65px}
+        {# .header{height:65px} #}
         .page-section{margin-bottom:54px}
         .page-section h2{font-size:20px;margin-bottom:16px}
         .page-section h3{font-size:16px}
@@ -164,7 +167,7 @@
     <header class="header">
         <div class="header__inner">
             <a href="/" class="header__logo-wrapper">
-                <img src="" class="header__logo" alt="" width="">
+                <img src="./logo.jpg" class="img logo" alt="" width="">
             </a>
 
             <div class="header__menu">
