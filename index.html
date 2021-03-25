@@ -14,9 +14,18 @@
 
     <style>
         html{scroll-behavior:smooth}
-        body{margin:0;padding:0;font-size:16px;font-family:'Roboto',sans-serif;font-weight:400;color:#061721;overflow-x:hidden;position:relative}
+        body{overflow:hidden; margin:0;padding:0;font-size:16px;font-family:'Roboto',sans-serif;font-weight:400;color:#061721;overflow-x:hidden;position:relative}
         .page-section h1,.page-section h2,.page-section h3,.page-section p{margin:0}
         header ul,header li{padding:0;margin:0;list-style:none}
+        .scroll {
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            position: relative;
+        }
+
         .img{display:block;width:100%;height:100%;box-sizing:border-box;background-color:#cccc;min-height:200px;margin-bottom:10px}
         {# .header__logo-wrapper {width: 200px; height: 50px} #}
         .logo {width:115px;height:70px;min-height:unset; object-fit:contain;background:none;margin:0;}
@@ -42,6 +51,7 @@
         .modal{opacity:0;pointer-events:none;box-sizing:border-box;position:fixed;z-index:20000;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;max-width:320px;min-height:200px;background:#fff;padding:35px 40px;transition:.2s ease-in}
         .modal-overlay.active,.modal.active{opacity:1;pointer-events:all}
         .modal-close{position:absolute;top:0;right:0;cursor:pointer}
+        .modal-large{max-height: 70%; overflow-y: auto;}
         [data-event="showModal"]{cursor:pointer}
         .list-toggle-title{display:inline-block;cursor:pointer}
         .list-toggle-title::after{content:'';display:inline-block;width:15px;height:12px;margin-left:10px;background:url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.727736 1.1603e-06L7.00002 6.48926L13.2723 6.36206e-08L14 0.757832L7.00002 8L6.62518e-08 0.757833L0.727736 1.1603e-06Z' fill='%23061721'/%3E%3C/svg%3E%0A") center no-repeat;background-size:15px;transition:transform .2s ease-in-out}
@@ -91,6 +101,7 @@
         .header{width:100%}
         .i-cross{height:24px;width:34px;background-size:16px}
         .modal-close{width:40px;height:50px;background-size:20px}
+        .modal-large{max-width: 80%; width: 100%;}
         .header__inner{padding-top:10px;padding-bottom:10px}
         .header__button{display:none}
         .header__menu{width:100%;box-sizing:border-box}
@@ -205,7 +216,7 @@
             </div>
         </div>
     </header>
-    <main>
+    <main class="scroll">
         <div class="modal-overlay" data-event="hideModal" data-event-h="hideHeaderMenu"></div>
         <div class="page-wrapper">
             <section class="page-section">
@@ -290,35 +301,35 @@
             <section id="specialists" class="page-section">
                 <h2>Специалисты</h2>
                 <div class="flex-container">
-                    <div class="flex-item flex-item-5">
+                    <div class="flex-item flex-item-5" data-event="showModal" data-modal="#person-1">
                         <div class="img img-person" data-event="showModal" data-modal="#person-1">
                             <img src="" alt="">
                         </div>
-                        <p>
+                        <p data-event="showModal" data-modal="#person-1">
                             Ольга Вячеславовна Андрейкина
                         </p>
                     </div>
-                    <div class="flex-item flex-item-5">
+                    <div class="flex-item flex-item-5" data-event="showModal" data-modal="#person-2">
                         <div class="img img-person" data-event="showModal" data-modal="#person-2">
                             <img src="" alt="">
                         </div>
-                        <p>
+                        <p data-event="showModal" data-modal="#person-2">
                             Татьяна Анатольевна Климова
                         </p>
                     </div>
-                    <div class="flex-item flex-item-5">
+                    <div class="flex-item flex-item-5" data-event="showModal" data-modal="#person-3">
                         <div class="img img-person" data-event="showModal" data-modal="#person-3">
                             <img src="" alt="">
                         </div>
-                        <p>
+                        <p data-event="showModal" data-modal="#person-3">
                             Лора Владимировна Макмак
                         </p>
                     </div>
-                    <div class="flex-item flex-item-5">
+                    <div class="flex-item flex-item-5" data-event="showModal" data-modal="#person-4">
                         <div class="img img-person" data-event="showModal" data-modal="#person-4">
                             <img src="" alt="">
                         </div>
-                        <p>
+                        <p data-event="showModal" data-modal="#person-4">
                             Юлия Николаевна Рыбакова
                         </p>
                     </div>
@@ -412,42 +423,114 @@
             <section id="anons" class="page-section">
                 <h2>Анонсы предстоящих событий</h2>
                 <div class="flex-container">
-                    <a href="/" class="flex-item flex-item-4">
-                        <div class="img img-basic">
+                    <div class="flex-item flex-item-4" data-event="showModal" data-modal="#anons-1">
+                        <div class="img img-basic" data-event="showModal" data-modal="#anons-1">
                             <img src="" alt="">
                         </div>
-                        <p>
+                        <p data-event="showModal" data-modal="#anons-1">
                             Работа с педагогами - обсуждение спектаклей, театральные мастерские, мастер-классы по
                             театральной педагогике. (маленькое описание)
                         </p>
-                    </a>
-                    <a href="/" class="flex-item flex-item-4">
-                        <div class="img img-basic">
+                    </div>
+                    <div class="flex-item flex-item-4" data-event="showModal" data-modal="#anons-2">
+                        <div class="img img-basic" data-event="showModal" data-modal="#anons-2">
                             <img src="" alt="">
                         </div>
-                        <p>
+                        <p data-event="showModal" data-modal="#anons-2">
                             Работа с педагогами - обсуждение спектаклей, театральные мастерские, мастер-классы по
                             театральной педагогике. (маленькое описание)
                         </p>
-                    </a>
-                    <a href="/" class="flex-item flex-item-4">
-                        <div class="img img-basic">
+                    </div>
+                    <div class="flex-item flex-item-4" data-event="showModal" data-modal="#anons-3">
+                        <div class="img img-basic" data-event="showModal" data-modal="#anons-3">
                             <img src="" alt="">
                         </div>
-                        <p>
+                        <p data-event="showModal" data-modal="#anons-3">
                             Работа с педагогами - обсуждение спектаклей, театральные мастерские, мастер-классы по
                             театральной педагогике. (маленькое описание)
                         </p>
-                    </a>
-                    <a href="/" class="flex-item flex-item-4">
-                        <div class="img img-basic">
+                    </div>
+                    <div class="flex-item flex-item-4" data-event="showModal" data-modal="#anons-4">
+                        <div class="img img-basic" data-event="showModal" data-modal="#anons-4">
                             <img src="" alt="">
                         </div>
-                        <p>
+                        <p data-event="showModal" data-modal="#anons-4">
                             Работа с педагогами - обсуждение спектаклей, театральные мастерские, мастер-классы по
                             театральной педагогике. (маленькое описание)
                         </p>
-                    </a>
+                    </div>
+                </div>
+                <div id="anons-1" class="modal modal-large">
+                    <div class="i-cross modal-close" data-event="hideModal"></div>
+                    <div class="modal-inner">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies sodales efficitur. Suspendisse cursus eros ligula, ut luctus massa viverra sit amet. Integer metus sapien, ultricies vel tristique non, molestie eu ligula. Proin semper magna et diam rhoncus efficitur. Nunc pellentesque quam eu metus sodales faucibus. Morbi finibus nulla a quam scelerisque, pellentesque ultricies neque auctor. Donec id suscipit ligula, in pharetra mauris.
+
+                            Proin malesuada eros diam, quis consectetur turpis finibus nec. Duis lacinia tincidunt metus, sed faucibus neque. Duis consectetur ligula et elementum sagittis. Suspendisse porta pretium mi, et pulvinar mi cursus a. Quisque laoreet aliquam lacus at suscipit. Nulla at erat dolor. Suspendisse potenti. Sed ac libero ac arcu hendrerit maximus et id velit. Mauris nisi dolor, ultricies sit amet facilisis ac, placerat eget metus. Nam commodo felis a pharetra pulvinar. Sed vel dapibus erat, ac rhoncus orci. Integer eget nulla facilisis, mattis neque pulvinar, ultricies dui. Vestibulum aliquam quam facilisis pharetra dapibus. Suspendisse scelerisque dolor quis ligula volutpat aliquam. Proin molestie lorem eu nisl sagittis, vitae cursus orci lacinia.
+
+                            Nulla bibendum, odio a tempus dapibus, nisi justo ullamcorper lectus, rhoncus molestie felis erat eu ligula. Sed sit amet porta diam. Etiam sed faucibus metus, ac facilisis est. Fusce pretium eros eget convallis feugiat. Nullam magna odio, lobortis sit amet nunc ac, elementum ullamcorper ante. Etiam ut ex sit amet erat eleifend elementum. Etiam lacus nunc, tincidunt in orci quis, pharetra venenatis eros.
+
+                            Suspendisse placerat, elit eu placerat semper, arcu magna finibus justo, id imperdiet arcu sem eget ligula. Donec scelerisque id felis sodales venenatis. Donec dui nibh, gravida sed ligula at, bibendum rhoncus justo. Duis auctor tincidunt urna, nec fringilla neque placerat tempor. Vivamus sed tempus felis, bibendum sollicitudin felis. Sed tempus iaculis lectus, nec pellentesque nunc lobortis et. Curabitur vel orci dui. Fusce consequat efficitur dapibus. Nam vehicula metus vel sem ornare ullamcorper. Sed a malesuada dolor, eu feugiat sem.
+
+                            Aliquam vehicula mi ut sapien posuere, sed ultricies quam auctor. In vestibulum eleifend justo id egestas. Praesent pharetra blandit tellus a feugiat. Donec tincidunt augue vitae enim pulvinar, in eleifend lacus varius. Morbi nec augue sed arcu efficitur volutpat sit amet in felis. Curabitur in volutpat tellus. Aliquam ligula nisl, sollicitudin ut eros in, efficitur mollis nunc. Sed libero enim, tincidunt eget dictum a, euismod sit amet mauris. Cras fermentum ullamcorper convallis. Suspendisse elementum eget ipsum non malesuada. Donec ullamcorper justo erat, eget elementum leo gravida ac. Aliquam eleifend, eros a venenatis vulputate, ipsum ligula condimentum neque, a malesuada mauris leo eget nulla. Etiam nec ultricies purus. Suspendisse iaculis lectus id nibh mollis semper eu at magna. Fusce tincidunt lectus a turpis sagittis, vel porta sapien semper.
+
+                            Donec nulla magna, euismod id pretium vitae, tristique pharetra est. Maecenas porttitor erat eu diam posuere, sed cursus augue blandit. Nam ultrices in massa non eleifend. Etiam et convallis justo, ac finibus tellus. In et ipsum condimentum, ornare ligula at, vulputate arcu. Nullam vitae urna imperdiet, sodales odio ut, rutrum augue. Proin vulputate at magna ac tincidunt. Nam porttitor.
+                        </p>
+                    </div>
+                </div>
+                <div id="anons-2" class="modal modal-large">
+                    <div class="i-cross modal-close" data-event="hideModal"></div>
+                    <div class="modal-inner">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies sodales efficitur. Suspendisse cursus eros ligula, ut luctus massa viverra sit amet. Integer metus sapien, ultricies vel tristique non, molestie eu ligula. Proin semper magna et diam rhoncus efficitur. Nunc pellentesque quam eu metus sodales faucibus. Morbi finibus nulla a quam scelerisque, pellentesque ultricies neque auctor. Donec id suscipit ligula, in pharetra mauris.
+
+                            Proin malesuada eros diam, quis consectetur turpis finibus nec. Duis lacinia tincidunt metus, sed faucibus neque. Duis consectetur ligula et elementum sagittis. Suspendisse porta pretium mi, et pulvinar mi cursus a. Quisque laoreet aliquam lacus at suscipit. Nulla at erat dolor. Suspendisse potenti. Sed ac libero ac arcu hendrerit maximus et id velit. Mauris nisi dolor, ultricies sit amet facilisis ac, placerat eget metus. Nam commodo felis a pharetra pulvinar. Sed vel dapibus erat, ac rhoncus orci. Integer eget nulla facilisis, mattis neque pulvinar, ultricies dui. Vestibulum aliquam quam facilisis pharetra dapibus. Suspendisse scelerisque dolor quis ligula volutpat aliquam. Proin molestie lorem eu nisl sagittis, vitae cursus orci lacinia.
+
+                            Nulla bibendum, odio a tempus dapibus, nisi justo ullamcorper lectus, rhoncus molestie felis erat eu ligula. Sed sit amet porta diam. Etiam sed faucibus metus, ac facilisis est. Fusce pretium eros eget convallis feugiat. Nullam magna odio, lobortis sit amet nunc ac, elementum ullamcorper ante. Etiam ut ex sit amet erat eleifend elementum. Etiam lacus nunc, tincidunt in orci quis, pharetra venenatis eros.
+
+                            Suspendisse placerat, elit eu placerat semper, arcu magna finibus justo, id imperdiet arcu sem eget ligula. Donec scelerisque id felis sodales venenatis. Donec dui nibh, gravida sed ligula at, bibendum rhoncus justo. Duis auctor tincidunt urna, nec fringilla neque placerat tempor. Vivamus sed tempus felis, bibendum sollicitudin felis. Sed tempus iaculis lectus, nec pellentesque nunc lobortis et. Curabitur vel orci dui. Fusce consequat efficitur dapibus. Nam vehicula metus vel sem ornare ullamcorper. Sed a malesuada dolor, eu feugiat sem.
+
+                            Aliquam vehicula mi ut sapien posuere, sed ultricies quam auctor. In vestibulum eleifend justo id egestas. Praesent pharetra blandit tellus a feugiat. Donec tincidunt augue vitae enim pulvinar, in eleifend lacus varius. Morbi nec augue sed arcu efficitur volutpat sit amet in felis. Curabitur in volutpat tellus. Aliquam ligula nisl, sollicitudin ut eros in, efficitur mollis nunc. Sed libero enim, tincidunt eget dictum a, euismod sit amet mauris. Cras fermentum ullamcorper convallis. Suspendisse elementum eget ipsum non malesuada. Donec ullamcorper justo erat, eget elementum leo gravida ac. Aliquam eleifend, eros a venenatis vulputate, ipsum ligula condimentum neque, a malesuada mauris leo eget nulla. Etiam nec ultricies purus. Suspendisse iaculis lectus id nibh mollis semper eu at magna. Fusce tincidunt lectus a turpis sagittis, vel porta sapien semper.
+
+                            Donec nulla magna, euismod id pretium vitae, tristique pharetra est. Maecenas porttitor erat eu diam posuere, sed cursus augue blandit. Nam ultrices in massa non eleifend. Etiam et convallis justo, ac finibus tellus. In et ipsum condimentum, ornare ligula at, vulputate arcu. Nullam vitae urna imperdiet, sodales odio ut, rutrum augue. Proin vulputate at magna ac tincidunt. Nam porttitor.
+                        </p>
+                    </div>
+                </div>
+                <div id="anons-3" class="modal modal-large">
+                    <div class="i-cross modal-close" data-event="hideModal"></div>
+                    <div class="modal-inner">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies sodales efficitur. Suspendisse cursus eros ligula, ut luctus massa viverra sit amet. Integer metus sapien, ultricies vel tristique non, molestie eu ligula. Proin semper magna et diam rhoncus efficitur. Nunc pellentesque quam eu metus sodales faucibus. Morbi finibus nulla a quam scelerisque, pellentesque ultricies neque auctor. Donec id suscipit ligula, in pharetra mauris.
+
+                            Proin malesuada eros diam, quis consectetur turpis finibus nec. Duis lacinia tincidunt metus, sed faucibus neque. Duis consectetur ligula et elementum sagittis. Suspendisse porta pretium mi, et pulvinar mi cursus a. Quisque laoreet aliquam lacus at suscipit. Nulla at erat dolor. Suspendisse potenti. Sed ac libero ac arcu hendrerit maximus et id velit. Mauris nisi dolor, ultricies sit amet facilisis ac, placerat eget metus. Nam commodo felis a pharetra pulvinar. Sed vel dapibus erat, ac rhoncus orci. Integer eget nulla facilisis, mattis neque pulvinar, ultricies dui. Vestibulum aliquam quam facilisis pharetra dapibus. Suspendisse scelerisque dolor quis ligula volutpat aliquam. Proin molestie lorem eu nisl sagittis, vitae cursus orci lacinia.
+
+                            Nulla bibendum, odio a tempus dapibus, nisi justo ullamcorper lectus, rhoncus molestie felis erat eu ligula. Sed sit amet porta diam. Etiam sed faucibus metus, ac facilisis est. Fusce pretium eros eget convallis feugiat. Nullam magna odio, lobortis sit amet nunc ac, elementum ullamcorper ante. Etiam ut ex sit amet erat eleifend elementum. Etiam lacus nunc, tincidunt in orci quis, pharetra venenatis eros.
+
+                            Suspendisse placerat, elit eu placerat semper, arcu magna finibus justo, id imperdiet arcu sem eget ligula. Donec scelerisque id felis sodales venenatis. Donec dui nibh, gravida sed ligula at, bibendum rhoncus justo. Duis auctor tincidunt urna, nec fringilla neque placerat tempor. Vivamus sed tempus felis, bibendum sollicitudin felis. Sed tempus iaculis lectus, nec pellentesque nunc lobortis et. Curabitur vel orci dui. Fusce consequat efficitur dapibus. Nam vehicula metus vel sem ornare ullamcorper. Sed a malesuada dolor, eu feugiat sem.
+
+                            Aliquam vehicula mi ut sapien posuere, sed ultricies quam auctor. In vestibulum eleifend justo id egestas. Praesent pharetra blandit tellus a feugiat. Donec tincidunt augue vitae enim pulvinar, in eleifend lacus varius. Morbi nec augue sed arcu efficitur volutpat sit amet in felis. Curabitur in volutpat tellus. Aliquam ligula nisl, sollicitudin ut eros in, efficitur mollis nunc. Sed libero enim, tincidunt eget dictum a, euismod sit amet mauris. Cras fermentum ullamcorper convallis. Suspendisse elementum eget ipsum non malesuada. Donec ullamcorper justo erat, eget elementum leo gravida ac. Aliquam eleifend, eros a venenatis vulputate, ipsum ligula condimentum neque, a malesuada mauris leo eget nulla. Etiam nec ultricies purus. Suspendisse iaculis lectus id nibh mollis semper eu at magna. Fusce tincidunt lectus a turpis sagittis, vel porta sapien semper.
+
+                            Donec nulla magna, euismod id pretium vitae, tristique pharetra est. Maecenas porttitor erat eu diam posuere, sed cursus augue blandit. Nam ultrices in massa non eleifend. Etiam et convallis justo, ac finibus tellus. In et ipsum condimentum, ornare ligula at, vulputate arcu. Nullam vitae urna imperdiet, sodales odio ut, rutrum augue. Proin vulputate at magna ac tincidunt. Nam porttitor.
+                        </p>
+                    </div>
+                </div>
+                <div id="anons-4" class="modal modal-large">
+                    <div class="i-cross modal-close" data-event="hideModal"></div>
+                    <div class="modal-inner">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies sodales efficitur. Suspendisse cursus eros ligula, ut luctus massa viverra sit amet. Integer metus sapien, ultricies vel tristique non, molestie eu ligula. Proin semper magna et diam rhoncus efficitur. Nunc pellentesque quam eu metus sodales faucibus. Morbi finibus nulla a quam scelerisque, pellentesque ultricies neque auctor. Donec id suscipit ligula, in pharetra mauris.
+
+                            Proin malesuada eros diam, quis consectetur turpis finibus nec. Duis lacinia tincidunt metus, sed faucibus neque. Duis consectetur ligula et elementum sagittis. Suspendisse porta pretium mi, et pulvinar mi cursus a. Quisque laoreet aliquam lacus at suscipit. Nulla at erat dolor. Suspendisse potenti. Sed ac libero ac arcu hendrerit maximus et id velit. Mauris nisi dolor, ultricies sit amet facilisis ac, placerat eget metus. Nam commodo felis a pharetra pulvinar. Sed vel dapibus erat, ac rhoncus orci. Integer eget nulla facilisis, mattis neque pulvinar, ultricies dui. Vestibulum aliquam quam facilisis pharetra dapibus. Suspendisse scelerisque dolor quis ligula volutpat aliquam. Proin molestie lorem eu nisl sagittis, vitae cursus orci lacinia.
+
+                            Nulla bibendum, odio a tempus dapibus, nisi justo ullamcorper lectus, rhoncus molestie felis erat eu ligula. Sed sit amet porta diam. Etiam sed faucibus metus, ac facilisis est. Fusce pretium eros eget convallis feugiat. Nullam magna odio, lobortis sit amet nunc ac, elementum ullamcorper ante. Etiam ut ex sit amet erat eleifend elementum. Etiam lacus nunc, tincidunt in orci quis, pharetra venenatis eros.
+
+                            Suspendisse placerat, elit eu placerat semper, arcu magna finibus justo, id imperdiet arcu sem eget ligula. Donec scelerisque id felis sodales venenatis. Donec dui nibh, gravida sed ligula at, bibendum rhoncus justo. Duis auctor tincidunt urna, nec fringilla neque placerat tempor. Vivamus sed tempus felis, bibendum sollicitudin felis. Sed tempus iaculis lectus, nec pellentesque nunc lobortis et. Curabitur vel orci dui. Fusce consequat efficitur dapibus. Nam vehicula metus vel sem ornare ullamcorper. Sed a malesuada dolor, eu feugiat sem.
+
+                            Aliquam vehicula mi ut sapien posuere, sed ultricies quam auctor. In vestibulum eleifend justo id egestas. Praesent pharetra blandit tellus a feugiat. Donec tincidunt augue vitae enim pulvinar, in eleifend lacus varius. Morbi nec augue sed arcu efficitur volutpat sit amet in felis. Curabitur in volutpat tellus. Aliquam ligula nisl, sollicitudin ut eros in, efficitur mollis nunc. Sed libero enim, tincidunt eget dictum a, euismod sit amet mauris. Cras fermentum ullamcorper convallis. Suspendisse elementum eget ipsum non malesuada. Donec ullamcorper justo erat, eget elementum leo gravida ac. Aliquam eleifend, eros a venenatis vulputate, ipsum ligula condimentum neque, a malesuada mauris leo eget nulla. Etiam nec ultricies purus. Suspendisse iaculis lectus id nibh mollis semper eu at magna. Fusce tincidunt lectus a turpis sagittis, vel porta sapien semper.
+
+                            Donec nulla magna, euismod id pretium vitae, tristique pharetra est. Maecenas porttitor erat eu diam posuere, sed cursus augue blandit. Nam ultrices in massa non eleifend. Etiam et convallis justo, ac finibus tellus. In et ipsum condimentum, ornare ligula at, vulputate arcu. Nullam vitae urna imperdiet, sodales odio ut, rutrum augue. Proin vulputate at magna ac tincidunt. Nam porttitor.
+                        </p>
+                    </div>
                 </div>
                 <a href="" class="page-section__link">Посмотреть все</a>
             </section>
@@ -455,22 +538,94 @@
             <section id="news" class="page-section">
                 <h2>Новости</h2>
                 <div class="flex-container">
-                    <a href="/" class="flex-item flex-item-4 news__item">
-                        <div class="news__item-title">Новость</div>
-                        <div class="news__item-descr">Тут описание услуги на несколько строк. Тут описание услуги на несколько строк. Тут описание услуги на несколько строк.</div>
-                    </a>
-                    <a href="/" class="flex-item flex-item-4 news__item">
-                        <div class="news__item-title">Новость</div>
-                        <div class="news__item-descr">Тут описание услуги на несколько строк. Тут описание услуги на несколько строк. Тут описание услуги на несколько строк.</div>
-                    </a>
-                    <a href="/" class="flex-item flex-item-4 news__item">
-                        <div class="news__item-title">Новость</div>
-                        <div class="news__item-descr">Тут описание услуги на несколько строк. Тут описание услуги на несколько строк. Тут описание услуги на несколько строк.</div>
-                    </a>
-                    <a href="/" class="flex-item flex-item-4 news__item">
-                        <div class="news__item-title">Новость</div>
-                        <div class="news__item-descr">Тут описание услуги на несколько строк. Тут описание услуги на несколько строк. Тут описание услуги на несколько строк.</div>
-                    </a>
+                    <div class="flex-item flex-item-4 news__item" data-event="showModal" data-modal="#news-1">
+                        <div class="news__item-title" data-event="showModal" data-modal="#news-1">Новость</div>
+                        <div class="news__item-descr" data-event="showModal" data-modal="#news-1">Тут описание услуги на несколько строк. Тут описание услуги на несколько строк. Тут описание услуги на несколько строк.</div>
+                    </div>
+                    <div class="flex-item flex-item-4 news__item" data-event="showModal" data-modal="#news-2">
+                        <div class="news__item-title" data-event="showModal" data-modal="#news-2">Новость</div>
+                        <div class="news__item-descr" data-event="showModal" data-modal="#news-2">Тут описание услуги на несколько строк. Тут описание услуги на несколько строк. Тут описание услуги на несколько строк.</div>
+                    </div>
+                    <div class="flex-item flex-item-4 news__item" data-event="showModal" data-modal="#news-3">
+                        <div class="news__item-title" data-event="showModal" data-modal="#news-3">Новость</div>
+                        <div class="news__item-descr" data-event="showModal" data-modal="#news-3">Тут описание услуги на несколько строк. Тут описание услуги на несколько строк. Тут описание услуги на несколько строк.</div>
+                    </div>
+                    <div class="flex-item flex-item-4 news__item" data-event="showModal" data-modal="#news-4">
+                        <div class="news__item-title" data-event="showModal" data-modal="#news-4">Новость</div>
+                        <div class="news__item-descr" data-event="showModal" data-modal="#news-4">Тут описание услуги на несколько строк. Тут описание услуги на несколько строк. Тут описание услуги на несколько строк.</div>
+                    </div>
+                </div>
+                <div id="news-1" class="modal modal-large">
+                    <div class="i-cross modal-close" data-event="hideModal"></div>
+                    <div class="modal-inner">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies sodales efficitur. Suspendisse cursus eros ligula, ut luctus massa viverra sit amet. Integer metus sapien, ultricies vel tristique non, molestie eu ligula. Proin semper magna et diam rhoncus efficitur. Nunc pellentesque quam eu metus sodales faucibus. Morbi finibus nulla a quam scelerisque, pellentesque ultricies neque auctor. Donec id suscipit ligula, in pharetra mauris.
+
+                            Proin malesuada eros diam, quis consectetur turpis finibus nec. Duis lacinia tincidunt metus, sed faucibus neque. Duis consectetur ligula et elementum sagittis. Suspendisse porta pretium mi, et pulvinar mi cursus a. Quisque laoreet aliquam lacus at suscipit. Nulla at erat dolor. Suspendisse potenti. Sed ac libero ac arcu hendrerit maximus et id velit. Mauris nisi dolor, ultricies sit amet facilisis ac, placerat eget metus. Nam commodo felis a pharetra pulvinar. Sed vel dapibus erat, ac rhoncus orci. Integer eget nulla facilisis, mattis neque pulvinar, ultricies dui. Vestibulum aliquam quam facilisis pharetra dapibus. Suspendisse scelerisque dolor quis ligula volutpat aliquam. Proin molestie lorem eu nisl sagittis, vitae cursus orci lacinia.
+
+                            Nulla bibendum, odio a tempus dapibus, nisi justo ullamcorper lectus, rhoncus molestie felis erat eu ligula. Sed sit amet porta diam. Etiam sed faucibus metus, ac facilisis est. Fusce pretium eros eget convallis feugiat. Nullam magna odio, lobortis sit amet nunc ac, elementum ullamcorper ante. Etiam ut ex sit amet erat eleifend elementum. Etiam lacus nunc, tincidunt in orci quis, pharetra venenatis eros.
+
+                            Suspendisse placerat, elit eu placerat semper, arcu magna finibus justo, id imperdiet arcu sem eget ligula. Donec scelerisque id felis sodales venenatis. Donec dui nibh, gravida sed ligula at, bibendum rhoncus justo. Duis auctor tincidunt urna, nec fringilla neque placerat tempor. Vivamus sed tempus felis, bibendum sollicitudin felis. Sed tempus iaculis lectus, nec pellentesque nunc lobortis et. Curabitur vel orci dui. Fusce consequat efficitur dapibus. Nam vehicula metus vel sem ornare ullamcorper. Sed a malesuada dolor, eu feugiat sem.
+
+                            Aliquam vehicula mi ut sapien posuere, sed ultricies quam auctor. In vestibulum eleifend justo id egestas. Praesent pharetra blandit tellus a feugiat. Donec tincidunt augue vitae enim pulvinar, in eleifend lacus varius. Morbi nec augue sed arcu efficitur volutpat sit amet in felis. Curabitur in volutpat tellus. Aliquam ligula nisl, sollicitudin ut eros in, efficitur mollis nunc. Sed libero enim, tincidunt eget dictum a, euismod sit amet mauris. Cras fermentum ullamcorper convallis. Suspendisse elementum eget ipsum non malesuada. Donec ullamcorper justo erat, eget elementum leo gravida ac. Aliquam eleifend, eros a venenatis vulputate, ipsum ligula condimentum neque, a malesuada mauris leo eget nulla. Etiam nec ultricies purus. Suspendisse iaculis lectus id nibh mollis semper eu at magna. Fusce tincidunt lectus a turpis sagittis, vel porta sapien semper.
+
+                            Donec nulla magna, euismod id pretium vitae, tristique pharetra est. Maecenas porttitor erat eu diam posuere, sed cursus augue blandit. Nam ultrices in massa non eleifend. Etiam et convallis justo, ac finibus tellus. In et ipsum condimentum, ornare ligula at, vulputate arcu. Nullam vitae urna imperdiet, sodales odio ut, rutrum augue. Proin vulputate at magna ac tincidunt. Nam porttitor.
+                        </p>
+                    </div>
+                </div>
+                <div id="news-2" class="modal modal-large">
+                    <div class="i-cross modal-close" data-event="hideModal"></div>
+                    <div class="modal-inner">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies sodales efficitur. Suspendisse cursus eros ligula, ut luctus massa viverra sit amet. Integer metus sapien, ultricies vel tristique non, molestie eu ligula. Proin semper magna et diam rhoncus efficitur. Nunc pellentesque quam eu metus sodales faucibus. Morbi finibus nulla a quam scelerisque, pellentesque ultricies neque auctor. Donec id suscipit ligula, in pharetra mauris.
+
+                            Proin malesuada eros diam, quis consectetur turpis finibus nec. Duis lacinia tincidunt metus, sed faucibus neque. Duis consectetur ligula et elementum sagittis. Suspendisse porta pretium mi, et pulvinar mi cursus a. Quisque laoreet aliquam lacus at suscipit. Nulla at erat dolor. Suspendisse potenti. Sed ac libero ac arcu hendrerit maximus et id velit. Mauris nisi dolor, ultricies sit amet facilisis ac, placerat eget metus. Nam commodo felis a pharetra pulvinar. Sed vel dapibus erat, ac rhoncus orci. Integer eget nulla facilisis, mattis neque pulvinar, ultricies dui. Vestibulum aliquam quam facilisis pharetra dapibus. Suspendisse scelerisque dolor quis ligula volutpat aliquam. Proin molestie lorem eu nisl sagittis, vitae cursus orci lacinia.
+
+                            Nulla bibendum, odio a tempus dapibus, nisi justo ullamcorper lectus, rhoncus molestie felis erat eu ligula. Sed sit amet porta diam. Etiam sed faucibus metus, ac facilisis est. Fusce pretium eros eget convallis feugiat. Nullam magna odio, lobortis sit amet nunc ac, elementum ullamcorper ante. Etiam ut ex sit amet erat eleifend elementum. Etiam lacus nunc, tincidunt in orci quis, pharetra venenatis eros.
+
+                            Suspendisse placerat, elit eu placerat semper, arcu magna finibus justo, id imperdiet arcu sem eget ligula. Donec scelerisque id felis sodales venenatis. Donec dui nibh, gravida sed ligula at, bibendum rhoncus justo. Duis auctor tincidunt urna, nec fringilla neque placerat tempor. Vivamus sed tempus felis, bibendum sollicitudin felis. Sed tempus iaculis lectus, nec pellentesque nunc lobortis et. Curabitur vel orci dui. Fusce consequat efficitur dapibus. Nam vehicula metus vel sem ornare ullamcorper. Sed a malesuada dolor, eu feugiat sem.
+
+                            Aliquam vehicula mi ut sapien posuere, sed ultricies quam auctor. In vestibulum eleifend justo id egestas. Praesent pharetra blandit tellus a feugiat. Donec tincidunt augue vitae enim pulvinar, in eleifend lacus varius. Morbi nec augue sed arcu efficitur volutpat sit amet in felis. Curabitur in volutpat tellus. Aliquam ligula nisl, sollicitudin ut eros in, efficitur mollis nunc. Sed libero enim, tincidunt eget dictum a, euismod sit amet mauris. Cras fermentum ullamcorper convallis. Suspendisse elementum eget ipsum non malesuada. Donec ullamcorper justo erat, eget elementum leo gravida ac. Aliquam eleifend, eros a venenatis vulputate, ipsum ligula condimentum neque, a malesuada mauris leo eget nulla. Etiam nec ultricies purus. Suspendisse iaculis lectus id nibh mollis semper eu at magna. Fusce tincidunt lectus a turpis sagittis, vel porta sapien semper.
+
+                            Donec nulla magna, euismod id pretium vitae, tristique pharetra est. Maecenas porttitor erat eu diam posuere, sed cursus augue blandit. Nam ultrices in massa non eleifend. Etiam et convallis justo, ac finibus tellus. In et ipsum condimentum, ornare ligula at, vulputate arcu. Nullam vitae urna imperdiet, sodales odio ut, rutrum augue. Proin vulputate at magna ac tincidunt. Nam porttitor.
+                        </p>
+                    </div>
+                </div>
+                <div id="news-3" class="modal modal-large">
+                    <div class="i-cross modal-close" data-event="hideModal"></div>
+                    <div class="modal-inner">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies sodales efficitur. Suspendisse cursus eros ligula, ut luctus massa viverra sit amet. Integer metus sapien, ultricies vel tristique non, molestie eu ligula. Proin semper magna et diam rhoncus efficitur. Nunc pellentesque quam eu metus sodales faucibus. Morbi finibus nulla a quam scelerisque, pellentesque ultricies neque auctor. Donec id suscipit ligula, in pharetra mauris.
+
+                            Proin malesuada eros diam, quis consectetur turpis finibus nec. Duis lacinia tincidunt metus, sed faucibus neque. Duis consectetur ligula et elementum sagittis. Suspendisse porta pretium mi, et pulvinar mi cursus a. Quisque laoreet aliquam lacus at suscipit. Nulla at erat dolor. Suspendisse potenti. Sed ac libero ac arcu hendrerit maximus et id velit. Mauris nisi dolor, ultricies sit amet facilisis ac, placerat eget metus. Nam commodo felis a pharetra pulvinar. Sed vel dapibus erat, ac rhoncus orci. Integer eget nulla facilisis, mattis neque pulvinar, ultricies dui. Vestibulum aliquam quam facilisis pharetra dapibus. Suspendisse scelerisque dolor quis ligula volutpat aliquam. Proin molestie lorem eu nisl sagittis, vitae cursus orci lacinia.
+
+                            Nulla bibendum, odio a tempus dapibus, nisi justo ullamcorper lectus, rhoncus molestie felis erat eu ligula. Sed sit amet porta diam. Etiam sed faucibus metus, ac facilisis est. Fusce pretium eros eget convallis feugiat. Nullam magna odio, lobortis sit amet nunc ac, elementum ullamcorper ante. Etiam ut ex sit amet erat eleifend elementum. Etiam lacus nunc, tincidunt in orci quis, pharetra venenatis eros.
+
+                            Suspendisse placerat, elit eu placerat semper, arcu magna finibus justo, id imperdiet arcu sem eget ligula. Donec scelerisque id felis sodales venenatis. Donec dui nibh, gravida sed ligula at, bibendum rhoncus justo. Duis auctor tincidunt urna, nec fringilla neque placerat tempor. Vivamus sed tempus felis, bibendum sollicitudin felis. Sed tempus iaculis lectus, nec pellentesque nunc lobortis et. Curabitur vel orci dui. Fusce consequat efficitur dapibus. Nam vehicula metus vel sem ornare ullamcorper. Sed a malesuada dolor, eu feugiat sem.
+
+                            Aliquam vehicula mi ut sapien posuere, sed ultricies quam auctor. In vestibulum eleifend justo id egestas. Praesent pharetra blandit tellus a feugiat. Donec tincidunt augue vitae enim pulvinar, in eleifend lacus varius. Morbi nec augue sed arcu efficitur volutpat sit amet in felis. Curabitur in volutpat tellus. Aliquam ligula nisl, sollicitudin ut eros in, efficitur mollis nunc. Sed libero enim, tincidunt eget dictum a, euismod sit amet mauris. Cras fermentum ullamcorper convallis. Suspendisse elementum eget ipsum non malesuada. Donec ullamcorper justo erat, eget elementum leo gravida ac. Aliquam eleifend, eros a venenatis vulputate, ipsum ligula condimentum neque, a malesuada mauris leo eget nulla. Etiam nec ultricies purus. Suspendisse iaculis lectus id nibh mollis semper eu at magna. Fusce tincidunt lectus a turpis sagittis, vel porta sapien semper.
+
+                            Donec nulla magna, euismod id pretium vitae, tristique pharetra est. Maecenas porttitor erat eu diam posuere, sed cursus augue blandit. Nam ultrices in massa non eleifend. Etiam et convallis justo, ac finibus tellus. In et ipsum condimentum, ornare ligula at, vulputate arcu. Nullam vitae urna imperdiet, sodales odio ut, rutrum augue. Proin vulputate at magna ac tincidunt. Nam porttitor.
+                        </p>
+                    </div>
+                </div>
+                <div id="news-4" class="modal modal-large">
+                    <div class="i-cross modal-close" data-event="hideModal"></div>
+                    <div class="modal-inner">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies sodales efficitur. Suspendisse cursus eros ligula, ut luctus massa viverra sit amet. Integer metus sapien, ultricies vel tristique non, molestie eu ligula. Proin semper magna et diam rhoncus efficitur. Nunc pellentesque quam eu metus sodales faucibus. Morbi finibus nulla a quam scelerisque, pellentesque ultricies neque auctor. Donec id suscipit ligula, in pharetra mauris.
+
+                            Proin malesuada eros diam, quis consectetur turpis finibus nec. Duis lacinia tincidunt metus, sed faucibus neque. Duis consectetur ligula et elementum sagittis. Suspendisse porta pretium mi, et pulvinar mi cursus a. Quisque laoreet aliquam lacus at suscipit. Nulla at erat dolor. Suspendisse potenti. Sed ac libero ac arcu hendrerit maximus et id velit. Mauris nisi dolor, ultricies sit amet facilisis ac, placerat eget metus. Nam commodo felis a pharetra pulvinar. Sed vel dapibus erat, ac rhoncus orci. Integer eget nulla facilisis, mattis neque pulvinar, ultricies dui. Vestibulum aliquam quam facilisis pharetra dapibus. Suspendisse scelerisque dolor quis ligula volutpat aliquam. Proin molestie lorem eu nisl sagittis, vitae cursus orci lacinia.
+
+                            Nulla bibendum, odio a tempus dapibus, nisi justo ullamcorper lectus, rhoncus molestie felis erat eu ligula. Sed sit amet porta diam. Etiam sed faucibus metus, ac facilisis est. Fusce pretium eros eget convallis feugiat. Nullam magna odio, lobortis sit amet nunc ac, elementum ullamcorper ante. Etiam ut ex sit amet erat eleifend elementum. Etiam lacus nunc, tincidunt in orci quis, pharetra venenatis eros.
+
+                            Suspendisse placerat, elit eu placerat semper, arcu magna finibus justo, id imperdiet arcu sem eget ligula. Donec scelerisque id felis sodales venenatis. Donec dui nibh, gravida sed ligula at, bibendum rhoncus justo. Duis auctor tincidunt urna, nec fringilla neque placerat tempor. Vivamus sed tempus felis, bibendum sollicitudin felis. Sed tempus iaculis lectus, nec pellentesque nunc lobortis et. Curabitur vel orci dui. Fusce consequat efficitur dapibus. Nam vehicula metus vel sem ornare ullamcorper. Sed a malesuada dolor, eu feugiat sem.
+
+                            Aliquam vehicula mi ut sapien posuere, sed ultricies quam auctor. In vestibulum eleifend justo id egestas. Praesent pharetra blandit tellus a feugiat. Donec tincidunt augue vitae enim pulvinar, in eleifend lacus varius. Morbi nec augue sed arcu efficitur volutpat sit amet in felis. Curabitur in volutpat tellus. Aliquam ligula nisl, sollicitudin ut eros in, efficitur mollis nunc. Sed libero enim, tincidunt eget dictum a, euismod sit amet mauris. Cras fermentum ullamcorper convallis. Suspendisse elementum eget ipsum non malesuada. Donec ullamcorper justo erat, eget elementum leo gravida ac. Aliquam eleifend, eros a venenatis vulputate, ipsum ligula condimentum neque, a malesuada mauris leo eget nulla. Etiam nec ultricies purus. Suspendisse iaculis lectus id nibh mollis semper eu at magna. Fusce tincidunt lectus a turpis sagittis, vel porta sapien semper.
+
+                            Donec nulla magna, euismod id pretium vitae, tristique pharetra est. Maecenas porttitor erat eu diam posuere, sed cursus augue blandit. Nam ultrices in massa non eleifend. Etiam et convallis justo, ac finibus tellus. In et ipsum condimentum, ornare ligula at, vulputate arcu. Nullam vitae urna imperdiet, sodales odio ut, rutrum augue. Proin vulputate at magna ac tincidunt. Nam porttitor.
+                        </p>
+                    </div>
                 </div>
                 <a href="" class="page-section__link">Посмотреть все</a>
             </section>
