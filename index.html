@@ -17,17 +17,8 @@
         body{overflow:hidden; margin:0;padding:0;font-size:16px;font-family:'Roboto',sans-serif;font-weight:400;color:#061721;overflow-x:hidden;position:relative}
         .page-section h1,.page-section h2,.page-section h3,.page-section p{margin:0}
         header ul,header li{padding:0;margin:0;list-style:none}
-        .scroll {
-            height: 100vh;
-            overflow-y: auto;
-            overflow-x: hidden;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            position: relative;
-        }
-
+        .scroll{height: 100vh;overflow-y: auto;overflow-x: hidden;-webkit-box-sizing: border-box;box-sizing: border-box;position: relative;   scroll-behavior:smooth;}
         .img{display:block;width:100%;height:100%;box-sizing:border-box;background-color:#cccc;min-height:200px;margin-bottom:10px}
-        {# .header__logo-wrapper {width: 200px; height: 50px} #}
         .logo {width:115px;height:70px;min-height:unset; object-fit:contain;background:none;margin:0;}
         a{text-decoration:none;color:inherit}
         .i-arrow{display:block;width:24px;background-image:url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.25031 4.6875L7.62531 8.0625L11.0003 4.6875L12.1253 5.8125L7.62531 10.3125L3.12531 5.8125L4.25031 4.6875Z' fill='%23222222'/%3E%3C/svg%3E%0A");background-repeat:no-repeat;background-position:center;background-size:14px;transform-origin:center center;transition:.2s ease-in-out}
@@ -84,7 +75,7 @@
         p.socials-descr{margin-bottom:10px}
         .flex-container.socials{margin:0}
         .social{width:40px;height:24px;background-position:0 center;background-repeat:no-repeat}
-        @media screen and (min-width: 1150px) {
+        @media screen and (min-width: 1210px) {
         .contact + .contact{margin-top:40px}
         .contacts__item-label{font-size:18px;line-height:30px;text-transform:uppercase;color:rgba(6,23,33,.6);margin-bottom:10px}
         .contacts__item-descr{font-size:16px;line-height:18px;margin-bottom:10px;font-size:16px;line-height:18px}
@@ -106,16 +97,15 @@
         .header__button{display:none}
         .header__menu{width:100%;box-sizing:border-box}
         .header__nav-item{background-color:transparent;transition:.2s ease-in-out}
-        .header__nav-link{font-size:18px;padding:10px 15px;color:rgba(6,23,33,0.6);font-weight:400;transition:.2s ease-in-out}
+        .header__nav-link{font-size:18px;padding:10px 15px;color:rgba(6,23,33,0.6);font-weight:400;transition:.2s ease-in-out;white-space: nowrap;}
         .header__nav-item:hover{background-color:#000}
         .header__nav-item:hover .header__nav-link{color:rgba(255,255,255,1)}
         .header__nav{height:24px}
         .header__menu,.header__nav{display:flex}
         .header__nav{align-items:center;justify-content:space-between;width:100%}
-        .header__logo-wrapper{display:block;height:70px;width:200px;margin-right:63px}
+        .header__logo-wrapper{display:block;height:70px;margin-right:63px}
         .header__inner,.page-wrapper{padding-left:30px;padding-right:30px}
         .page-wrapper{padding-top:73px}
-        {# .header{height:90px} #}
         .page-section{margin-bottom:75px}
         .page-section-mt-half{margin-bottom:45px}
         .page-section h2{font-size:30px;margin-bottom:20px}
@@ -126,7 +116,7 @@
         .gallery-top{width:100%;height:570px}
         .gallery-thumbs{height:100px;box-sizing:border-box;padding:10px 0}
         }
-        @media screen and (max-width: 1149px) {
+        @media screen and (max-width: 1209px) {
         .contact + .contact{margin-top:20px}
         .contacts__item-label{font-size:16px;line-height:26px;text-transform:uppercase;color:rgba(6,23,33,.6);margin-bottom:10px}
         .contacts__item-descr{font-size:16px;line-height:18px;margin-bottom:10px;font-size:16px;line-height:18px}
@@ -151,14 +141,12 @@
         .i-cross{width:32px;height:32px;background-size:18px}
         .modal-close{width:40px;height:40px;background-size:20px}
         .i-arrow{height:20px}
-        {# .header__logo-wrapper{width:114px;height:32px} #}
         .logo{width:100px;height:58px;}
         .header__inner{position:relative;padding-top:15px;padding-bottom:15px}
         .header__menu{position:absolute;top:100%;left:100%;width:200px;height:calc(100vh - 65px);transition:.2s ease-in-out;box-sizing:border-box;padding:20px 15px;overflow-y:auto;background:#fff;margin-top:1px}
         .header.active .header__menu{transform:translateX(-100%)}
         .page-wrapper,.header__inner{padding-left:15px;padding-right:15px}
         .page-wrapper{padding-top:65px}
-        {# .header{height:65px} #}
         .page-section{margin-bottom:54px}
         .page-section h2{font-size:20px;margin-bottom:16px}
         .page-section h3{font-size:16px}
@@ -183,9 +171,9 @@
 
             <div class="header__menu">
                 <ul class="header__nav">
-                    <!-- <li class="header__nav-item">
+                    <li class="header__nav-item">
                         <a class="header__nav-link" href="#aim">Миссия и цель</a>
-                    </li> -->
+                    </li>
                     <li class="header__nav-item">
                         <a class="header__nav-link" href="#trends">Направления работы</a>
                     </li>
