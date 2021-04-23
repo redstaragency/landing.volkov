@@ -203,6 +203,20 @@
     @media (min-width: 936px) {
         .flex-item-form {width: unset;}
         .flex-v-end{align-items:flex-end}
+        #anons .flex-item:nth-child(n + 5),
+        #news .flex-item:nth-child(n + 5) {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            
+        }
+        #anons.active .flex-item,
+        #news.active .flex-item {
+            position: unset;
+            opacity: 1;
+            pointer-events: all;
+            transition: opacity 0.2s ease-in-out;
+        }
     }  
     @media (max-width: 585px) {
         .flex-container{flex-direction:column;margin:0}
@@ -498,6 +512,15 @@
                             театральной педагогике. (маленькое описание)
                         </p>
                     </div>
+                    <div class="flex-item flex-item-4" data-event="showModal" data-modal="#anons-4">
+                        <div class="img img-basic" data-event="showModal" data-modal="#anons-4">
+                            <img src="./logo.jpg"  alt="">
+                        </div>
+                        <p data-event="showModal" data-modal="#anons-4">
+                            Работа с педагогами - обсуждение спектаклей, театральные мастерские, мастер-классы по
+                            театральной педагогике. (маленькое описание)
+                        </p>
+                    </div>
                 </div>
                 <div id="anons-1" class="modal modal-large">
                     <div class="i-cross modal-close" data-event="hideModal"></div>
@@ -571,7 +594,7 @@
                         </p>
                     </div>
                 </div>
-                <a href="" class="page-section__link">Посмотреть все</a>
+                <a href="" class="page-section__link" data-default-value="Посмотреть все" data-active-value="Скрыть" data-event="showMore">Посмотреть все</a>
             </section>
 
             <section id="news" class="page-section">
@@ -588,6 +611,10 @@
                     <div class="flex-item flex-item-4 news__item" data-event="showModal" data-modal="#news-3">
                         <div class="news__item-title" data-event="showModal" data-modal="#news-3">Новость</div>
                         <div class="news__item-descr" data-event="showModal" data-modal="#news-3">Тут описание услуги на несколько строк. Тут описание услуги на несколько строк. Тут описание услуги на несколько строк.</div>
+                    </div>
+                    <div class="flex-item flex-item-4 news__item" data-event="showModal" data-modal="#news-4">
+                        <div class="news__item-title" data-event="showModal" data-modal="#news-4">Новость</div>
+                        <div class="news__item-descr" data-event="showModal" data-modal="#news-4">Тут описание услуги на несколько строк. Тут описание услуги на несколько строк. Тут описание услуги на несколько строк.</div>
                     </div>
                     <div class="flex-item flex-item-4 news__item" data-event="showModal" data-modal="#news-4">
                         <div class="news__item-title" data-event="showModal" data-modal="#news-4">Новость</div>
@@ -666,7 +693,7 @@
                         </p>
                     </div>
                 </div>
-                <a href="" class="page-section__link">Посмотреть все</a>
+                <a href="" class="page-section__link" data-default-value="Посмотреть все" data-active-value="Скрыть" data-event="showMore">Посмотреть все</a>
             </section>
 
             <section id="photos" class="page-section page-section-mt-half">
@@ -840,7 +867,23 @@
         if(event.target.dataset.eventH==='hideHeaderMenu'){document.querySelector('.header').classList.remove('active');document.querySelector('.modal-overlay').classList.remove('active')}
         if(event.target.dataset.event==="showModal"){let targetModal=event.target.dataset.modal;document.querySelector(targetModal).classList.add('active');document.querySelector('.modal-overlay').classList.add('active')}
         if(event.target.dataset.event==="hideModal"){document.querySelector('.modal.active').classList.remove('active');document.querySelector('.modal-overlay').classList.remove('active')}
-        if(event.target.dataset.event==="showText"){event.target.classList.toggle('active')}})
+        if(event.target.dataset.event==="showText"){event.target.classList.toggle('active')}
+
+        // показать еще
+        if(event.target.dataset.event==="showMore"){
+            event.preventDefault();
+            const button = event.target;
+            const buttonDefaultText = event.target.dataset.defaultValue;
+            const buttonActiveText = event.target.dataset.activeValue;
+            button.classList.toggle('active');
+            event.target.parentElement.classList.toggle('active');
+            if (button.classList.contains('active')) {
+                button.text = buttonActiveText;
+            } else {
+                button.text = buttonDefaultText;
+            }
+        } 
+    })
     </script>
 </body>
 
