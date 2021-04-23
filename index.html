@@ -84,7 +84,7 @@
     .contacts__item-label{font-size:18px;line-height:30px;text-transform:uppercase;color:rgba(6,23,33,.6);margin-bottom:10px}
     .contacts__item-descr{font-size:16px;line-height:18px;margin-bottom:10px;font-size:16px;line-height:18px}
     .contacts__item-time{font-size:16px;line-height:18px;color:rgba(6,23,33,.6)}
-    .news__item{padding:18px 20px;background:#f5f5f5;border:6px solid transparent;-webkit-transition:.2s linear;-o-transition:.2s linear;transition:.2s linear;cursor:pointer}
+    .news__item{padding:18px 20px;background:#f5f5f5;border:6px solid transparent;-webkit-transition:.2s linear;-o-transition:.2s linear;transition: border-color .2s linear;cursor:pointer}
     .news__item:hover{background:#fff;border-color:#061721}
     .news__item-title{font-size:18px;line-height:22px;margin-bottom:10px}
     .news__item-descr{font-size:16px;line-height:18px;opacity:.7}
@@ -182,36 +182,45 @@
         margin-top: 20px;
     }
 
-    #anons .flex-item:nth-child(n + 5),
-        #news .flex-item:nth-child(n + 5) {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-            
-        }
-    #anons.active .flex-item,
-    #news.active .flex-item {
-        position: unset;
-        opacity: 1;
-        pointer-events: all;
-        transition: opacity 0.2s ease-in-out;
-    }
-
     /* правки по адаптиву */
     @media (min-width: 936px) and (max-width: 1209px) {
         .flex-item-3{max-width:32.333%}
         .flex-item-4{max-width:32.333%}
         .flex-item-5{max-width:24%} 
+
+        #anons .flex-item:nth-child(n + 4),
+        #news .flex-item:nth-child(n + 4) {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none; 
+            z-index: -1000;
+        }
     }
     @media (min-width: 586px) and (max-width: 935px) {
         .flex-item-3{max-width:49%}
         .flex-item-4{max-width:49%}
         .flex-item-5{max-width:32.333%}
+
+        #anons .flex-item:nth-child(n + 3),
+        #news .flex-item:nth-child(n + 3) {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none; 
+            z-index: -1000;
+        }
     }
     @media (min-width: 586px) {
         .flex-container{display:flex;margin:0 -1% -20px 0}
         .flex-container{flex-wrap: wrap;}
         .flex-item{flex-grow:1;flex-shrink:1;width:100%;margin:0 1% 20px 0;box-sizing:border-box}
+
+        #anons .flex-item:nth-child(n + 5),
+        #news .flex-item:nth-child(n + 5) {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            z-index: -1000;
+        }
     }
     @media (min-width: 936px) {
         .flex-item-form {width: unset;}
@@ -222,6 +231,24 @@
         .flex-item{width:100%;margin:0; box-sizing: border-box;}
         .flex-item + .flex-item{margin-top:40px}
         .flex-item-form + .flex-item-form{margin-top:20px}
+
+        #anons .flex-item:nth-child(n + 2),
+        #news .flex-item:nth-child(n + 2) {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            z-index: -1000; 
+        }
+    }
+
+    /* показать еще */
+    #anons.active .flex-item,
+    #news.active .flex-item {
+        position: unset;
+        z-index: unset;
+        opacity: 1;
+        pointer-events: all;
+        transition: opacity 0.2s ease-in-out;
     }
     </style>
 </head>
