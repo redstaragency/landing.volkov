@@ -239,6 +239,22 @@
             pointer-events: none;
             z-index: -1000; 
         }
+
+        .modal,
+        .modal[id*="person-"] {
+            top: 89px;
+            left: 0;
+            width: 100%;
+            max-height: unset;
+            height: calc(100% - 89px);
+            transform: unset;
+            max-width: 100%;
+            overflow: auto;
+        }
+
+        .modal-inner img {
+            max-width: 100%;
+        }
     }
 
     /* показать еще */
